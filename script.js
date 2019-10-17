@@ -1,7 +1,9 @@
 
 // forEach()
 
-function newForEach(array, callback){
+let forEachArray = [1, 2, 3, 4, 5]
+
+function newForEach(array){
     for(let i = 0; i < array.length; i ++){
         console.log(callback(array[i]))
     }
@@ -19,10 +21,12 @@ let mapArray = [1, 2, 3, 4, 5]
 function newMap(array, callback){
     
     let newMapArray = []
+
     for (let index = 0; index < array.length; index++) {
         newMapArray[index] = callback(array[index])
     }
     console.log(newMapArray)
+    return newMapArray
 }
 
 newMap(mapArray, multipleByTwo)
@@ -34,12 +38,12 @@ let newSomeArray = [1, 2, 3, 4, 5]
 let newSomeDecision = null
 
 function lessThanThree(element) {
-    if(element < 4) {
-        newSomedecision = true
+    if(element < 3) {
+        newSomeDecision = true
     } else {
-        newSomedecision = false
+        newSomeDecision = false
     }
-    return newSomedecision
+    return newSomeDecision
 }
 
 function newSome(array, callback) {
@@ -50,13 +54,14 @@ function newSome(array, callback) {
         }
     }
     console.log(newSomeDecision)
+    return newSomeDecision
 }
 
 newSome(newSomeArray, lessThanThree)
 
 // find()
 
-let newFindArray = [5, 12, 8, 130, 44]
+let newFindArray = [12, 18, 130, 15, 44]
 let newFindDecision = null
 
 function lessThanTen(element) {
@@ -65,6 +70,7 @@ function lessThanTen(element) {
     } else {
         newFindDecision = false
     }
+    // console.log(newFindDecision)
     return newFindDecision
 }
 
@@ -73,9 +79,8 @@ function newFind(array, callback) {
         callback(array[index])
         if (newFindDecision === true) {
             console.log(array[index])
+            return array[index]
             break
-        } else {
-            continue
         }
     }
 }
@@ -87,18 +92,22 @@ newFind(newFindArray, lessThanTen)
 let newFindIndexArray = [5, 12, 8, 130, 44]
 let newFindIndexDecision = null
 
-function lessThanThirteen(element) {
+function greaterThanThirteen(element) {
     if (element > 13) {
         newFindIndexDecision = true
     } else {
         newFindIndexDecision = false
     }
 }
+
+
+
 function newFindIndex(array, callback) {
     for (let index = 0; index < array.length; index++) {
         callback(array[index])
-        if ( newFindIndexDecision === true) {
+        if (newFindIndexDecision === true) {
             console.log(index)
+            return index
             break
         } else {
             continue
@@ -106,7 +115,7 @@ function newFindIndex(array, callback) {
     }
 }
 
-newFindIndex(newFindIndexArray, lessThanThirteen)
+newFindIndex(newFindIndexArray, greaterThanThirteen)
 
 // every()
 
@@ -131,6 +140,7 @@ function newEvery(array, callback) {
         }
     }
     console.log(newEveryDecision)
+    return newEveryDecision
 }
 
 newEvery(newEveryArray, lessThanFourty)
@@ -159,6 +169,7 @@ function newFilter(array, callback) {
         }
     }
     console.log(emptyNewFilterArray)
+    return emptyNewFilterArray
 }
 
 newFilter(newFilterArray, moreThanFifteen)
